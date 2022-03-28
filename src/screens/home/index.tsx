@@ -1,13 +1,13 @@
-import { useContext, Fragment } from "react"
-import { ArticlesContext } from "../../context/articles-context"
+
+import { Tabs } from "../../components/tabs"
 
 export const Home = () : React.ReactElement => {
-  const { hits, isLoading } = useContext(ArticlesContext)
-  console.log("hits",hits)
 
   return(
-    !isLoading ? 
-      <div>Hello</div> : <Fragment></Fragment>
+      <div className="container">
+        <div className="row">
+          <Tabs />
+        </div>
+      </div> 
   )
-  
 }

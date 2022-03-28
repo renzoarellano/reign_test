@@ -3,8 +3,8 @@ const getArticleURL = ( technology: string, page: number) => {
 }
 
 type GetArticlesProps = {
-    technology: string,
-    page: number,
+    technology?: string,
+    page?: number,
 }
 
 type DetailArticle = {
@@ -41,6 +41,7 @@ hits: Array<
     parent_id: number,
     created_at_i: number,
     _tags: Array<string>,
+    favorite: boolean;
     objectID: string,
     _highlightResult: {
       author?: DetailArticle,
@@ -53,7 +54,7 @@ hits: Array<
 
 
 const  gettingArticles = async (
-{ technology, page } : GetArticlesProps) 
+{ technology = "", page = 0 } : GetArticlesProps) 
 : Promise<ArticleResponse> => {
     try{
         return  await fetch(getArticleURL(technology, page))
