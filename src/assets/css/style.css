@@ -1,0 +1,111 @@
+/*Global styles*/
+* {
+  font-family: 'Roboto', sans-serif;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: 0.25px;
+  color: #606060;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #fcfcfc;
+}
+
+header {
+  width: 100%;
+  padding: 0px 50px;
+  height: 114px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
+  margin: 0 0 70px;
+}
+header h1 {
+  font-size: 28px;
+  font-family: 'Libre Baskerville', serif;
+  margin: 0;
+}
+
+.buttonTab {
+  width: 98px;
+  padding: 5px 10px;
+  border-radius: 2px;
+  border: solid 1px #d6d6d6;
+  background-color: transparent;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+.activeTab {
+  border: solid 1px #1797ff;
+  color: #1797ff;
+}
+
+.article_card {
+  border-radius: 6px;
+  border: solid 1px #979797;
+  background-color: #fff;
+  max-width: 550px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  height: 90px;
+  align-items: center;
+  padding: 0px 22px;
+}
+
+.article_card:hover {
+  opacity: 0.8;
+}
+.article_card__data {
+  width: 100%;
+  min-height: 100%;
+  text-decoration: none;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.article_card__data__time {
+  display: flex;
+  justify-items: center;
+  font-size: 11px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+.article_card__data__title {
+  letter-spacing: 0.25px;
+  color: #6b6b6b;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.article-icon-button {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+}
+.article-icon {
+  width: 24px;
+  height: 22px;
+}
+.article-icon-time {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.article_card__favorite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 25px;
+}

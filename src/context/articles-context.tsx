@@ -5,25 +5,43 @@ type ArticleProviderProps = {
     children: React.ReactElement
 }
 
+type ArticleContextProps = {
+    articleList: ArticleResponse,
+    isLoading: boolean, 
+    page?: number,
+    updateArticles: (selectedFilter: string, page: number) => void;              
+}
 
-const ArticlesContext = createContext<ArticleResponse & 
-                        Partial<{isLoading: boolean}>>({} as ArticleResponse);
+
+type ArticleContextAttr = {
+    articleList: ArticleResponse,
+    isLoading: boolean, 
+    page?: number,                 
+}
+
+const ArticlesContext = createContext<ArticleContextProps>({} as ArticleContextProps);
 
 const ArticleProvider = ({ children }: ArticleProviderProps) => {
-    const [isLoading, setIsLoading] = useState<boolean>(true)
-    const [data, setData] = useState<ArticleResponse>({} as ArticleResponse)
+    const [data, setData] = useState<ArticleContextAttr>
+                                    ({ isLoading: true, page:0 } as ArticleContextAttr)
 
+     async function fetchData(selectedFilter?: string, page?: number) {
+        const articles = await gettingArticles({ technology: selectedFilter, page })
+        const newData = { articleList: articles, isLoading: false }
+            setData(newData);
+    }
+    
     useEffect(() => {
-        async function fetchData() {
-          const articles = await gettingArticles({ technology: "reactjs", page:0 })
-          setData(articles);
-          setIsLoading(false);
-        }
         fetchData();
-      }, []);
+    }, []);
+
+    async function updateArticles(selectedFilter: string, page: number = 0) {
+        fetchData(selectedFilter, page)
+    }
+    
     
     return(
-        <ArticlesContext.Provider value={{ ...data,isLoading }}>
+        <ArticlesContext.Provider value={{ ...data, updateArticles }}>
             {children}
         </ArticlesContext.Provider>
     )

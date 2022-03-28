@@ -1,0 +1,44 @@
+import { useState, useEffect, createContext } from "react";
+
+type SelectProviderProps = {
+    children: React.ReactElement
+}
+
+type SelectContextProps = {
+    selectedFilter: string,
+    changeFilter: (value:string) => void,
+}
+
+
+
+const SelectContext = createContext<SelectContextProps>({} as SelectContextProps);
+
+const SelectProvider = ({ children }: SelectProviderProps) => {
+    const [selectedFilter, setSelectedFilter] = useState<string>("")
+
+    const changeFilter = (value:string) => {
+        setSelectedFilter(value);
+    }
+
+    useEffect(() => {
+      const filter = window.localStorage.getItem("selectedFilter");
+      if(typeof filter != "undefined"){setSelectedFilter(filter || "")}
+    }, [])
+
+    useEffect(() => {
+        window.localStorage.setItem("selectedFilter", selectedFilter);
+      }, [selectedFilter])
+    
+    
+    return(
+        <SelectContext.Provider value={{ 
+                selectedFilter,
+                changeFilter
+                 }}>
+            {children}
+        </SelectContext.Provider>
+    )
+
+}
+
+export { SelectContext, SelectProvider }
