@@ -34,7 +34,7 @@ const TabList = [
       </Tab.List>
       <Tab.Panels>
         {TabList.map(({ key, component: Component }) => (
-          <Tab.Panel key={key}>
+          <Tab.Panel key={key} style={{ marginTop: "50px" }}>
             <Component />
           </Tab.Panel>
         ))}
