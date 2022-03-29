@@ -71,6 +71,7 @@ header h1 {
   justify-content: center;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .article_card__data__time {

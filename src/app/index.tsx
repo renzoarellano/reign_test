@@ -6,13 +6,12 @@ import "../assets/css/bootstrap.min.css";
 import "../assets/css/style.css"
 export const App = (): React.ReactElement => {
     return (
-      <SelectProvider>
-        <ArticleProvider>
-        <Layout>
-          <RouterApp />
-        </Layout>
-      </ArticleProvider>
-      </SelectProvider>
-      
+    <Layout>
+        <SelectProvider>
+          <ArticleProvider>
+              <RouterApp />
+          </ArticleProvider>
+        </SelectProvider>
+    </Layout>
     );
   };
