@@ -1,7 +1,6 @@
-
 import { Tabs } from "../../components/tabs"
 
-export const Home = () : React.ReactElement => {
+const Home = () : React.ReactElement => {
 
   return(
       <div className="container">
@@ -11,3 +10,4 @@ export const Home = () : React.ReactElement => {
       </div> 
   )
 }
+export { Home }

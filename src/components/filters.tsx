@@ -5,11 +5,12 @@ import { SelectContext } from "../context/select-context"
 import { SELECT_OPTIONS } from "../utils/dummy"
 import { useContext } from "react"
 export const Filters = () => {
-  const { updateArticles } = useContext(ArticlesContext) 
+  const { settingPage,updateArticles } = useContext(ArticlesContext) 
   const { selectedFilter, changeFilter } = useContext(SelectContext) 
   const changeNews = (value: string) =>  {
     changeFilter(value)
-    updateArticles(value, 0)
+    settingPage(1)
+     updateArticles(value, false)
   }
 
     return (
@@ -21,11 +22,11 @@ export const Filters = () => {
         >
           <option value="">Selected your news</option>
           {
-            SELECT_OPTIONS.map(({ value, name, icon: Icon }) => 
+            SELECT_OPTIONS.map(({ value, name, icon: SVG }) => 
                 <option 
                   key={value} 
                   value={value}> 
-                 <Icon style={{ width:"20px", height: "20px" }}/> {name}
+                  <SVG /> {name}
                 </option>
             )
           }

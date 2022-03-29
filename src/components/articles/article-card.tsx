@@ -1,5 +1,7 @@
 import { ArticleResponse } from "../../services/articles"
 import moment from "moment"
+import { ArticlesContext } from "../../context/articles-context"
+import { useContext } from "react"
 import { AiOutlineHeart, AiFillHeart, AiOutlineClockCircle } from "react-icons/ai"
 
 type ArticleCardProps = {
@@ -8,22 +10,29 @@ type ArticleCardProps = {
 
 export const ArticleCard = ( { article } : ArticleCardProps) => {
 
+  const { addFavorites, removeFavorites } = useContext(ArticlesContext)
+
 const diffDate = (created_at : string) => {
   const now = moment(new Date());
   const articleDate = moment(created_at)
   const minutes = now.diff(articleDate, "minutes")
-  console.log("🚀 ~ file: article-card.tsx ~ line 14 ~ diffDate ~ minutes", minutes)
   const hours = now.diff(articleDate, "hours")
-
+  const days = now.diff(articleDate, "days")
   if(minutes < 60){
-     return `${minutes} ${minutes > 1 ? "minute" : "minutes"} ago`;
-  }else{
-    return `${hours} ${hours > 1 ? "hour" : "hours"} ago`;
+     return `${minutes} ${minutes < 2 ? "minute" : "minutes"} ago`;
+  }else if(hours < 24){
+    return `${hours} ${hours < 2 ? "hour" : "hours"} ago`;
+  }else if(days < 366){
+    return `${days} ${days < 2 ? "day" : "days"} ago`;
   }
 }
 
 const chooseFavorite = ( data :  ArticleCardProps["article"]) => {
-console.log("🚀 ~ file: article-card.tsx ~ line 26 ~ chooseFavorite ~ article", data)
+  if(data.favorite){
+    removeFavorites(data)
+  }else{
+    addFavorites(data)
+  }
 }
     return (
         <div  className="article_card">
