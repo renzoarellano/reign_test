@@ -17,11 +17,9 @@ export const Articles = () => {
      setSearchParams({ query : selectedFilter, page: page.toString() }) 
   }, [page])
 
-
-  
     return (
       <Fragment>
-        <div className="col-3 mt-5 mb-5">
+        <div className="col-sm-5 col-md-4 col-lg-3 mt-5 mb-5">
           <Filters />
         </div>
         <div className="row">

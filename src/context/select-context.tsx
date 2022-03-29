@@ -23,7 +23,6 @@ const SelectProvider = ({ children }: SelectProviderProps) => {
       const params = new URLSearchParams(window.location.search)
       let filterParam = params.get('query')
       if(filterParam){
-      console.log("🚀 ~ file: select-context.tsx ~ line 26 ~ useEffect ~ filterParam", filterParam)
           setSelectedFilter(filterParam)
       }else if(typeof filter != "undefined"){
           setSelectedFilter(filter || "")

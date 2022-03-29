@@ -1,20 +1,26 @@
-import { FaReact, FaAngular, FaVuejs } from "react-icons/fa"
+import ReactIcon from "../assets/images/react.png"
+import AngularIcon from "../assets/images/angular.png"
+import VueIcon from "../assets/images/vue.png"
 
 const SELECT_OPTIONS = [
     { 
+        value: "",
+        label: "Select your news",
+    },
+    { 
         value: "reactjs",
-        name: "ReactJS",
-        icon: FaReact,
+        label: "ReactJS",
+        icon: ReactIcon,
     },
     { 
         value: "angular",
-        name: "AngularJS",
-        icon: FaAngular,
+        label: "AngularJS",
+        icon: AngularIcon,
     },
     { 
         value: "vuejs",
-        name: "VueJS",
-        icon: FaVuejs,
+        label: "VueJS",
+        icon: VueIcon,
     }    
 ]
 
