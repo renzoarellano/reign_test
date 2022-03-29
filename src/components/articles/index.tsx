@@ -8,7 +8,7 @@ import { SelectContext } from "../../context/select-context"
 import InfiniteScroll from "react-infinite-scroll-component"
 import { v4 as uuidv4 } from 'uuid';
 export const Articles = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
   const { articleList, isLoading, page , updateArticles } = useContext(ArticlesContext)
   const { selectedFilter } = useContext(SelectContext)
 
