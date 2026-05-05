@@ -41,6 +41,7 @@ const chooseFavorite = ( data :  ArticleCardProps["article"]) => {
               <AiOutlineClockCircle className="article-icon-time"/> {diffDate(article.created_at)} by {article.author}
           </div>
           <div className="article_card__data__title">
+            Renzo
           {article.story_title || "This article does not have title"}
           </div>
         </a>
